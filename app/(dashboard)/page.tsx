@@ -3,7 +3,8 @@ import React from "react";
 
 function page() {
     return (
-        <div>aq</div>
+        <div>
+        </div>
     )
 }
 

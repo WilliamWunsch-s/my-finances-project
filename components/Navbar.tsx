@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react";
-import Logo, { LogoMobile } from "./Logo";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -24,7 +23,7 @@ const items = [
     { label: "Dashboard", link: "/" },
     { label: "Transactions", link: "/transactions" },
     { label: "Manage", link: "/manage" },
-]
+  ]
 
 function MobileNavbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -39,7 +38,6 @@ function MobileNavbar() {
                         </Button>
                     </SheetTrigger>
                     <SheetContent className="w-[400px] sm:w-[540px]" side="left">
-                        <Logo />
                         <div className="flex flex-col gap-1 pt-4">
                             {items.map((item) => (
                                 <NavbarItem
@@ -53,7 +51,6 @@ function MobileNavbar() {
                     </SheetContent>
                 </Sheet>
                 <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
-                    <LogoMobile />
                 </div>
                 <div className="flex items-center gap-2">
                     <ThemeSwitcherBtn />
@@ -69,7 +66,6 @@ function DesktopNavbar() {
         <div className="hidden border-separate border-b bg-background md:block">
             <nav className="container flex items-center justify-between px-8">
                 <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
-                    <Logo />
                     <div className="flex h-full">
                         {items.map((item) => (
                             <NavbarItem
