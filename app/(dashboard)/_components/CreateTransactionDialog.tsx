@@ -88,16 +88,15 @@ function CreateTransactionDialog({ trigger, type }: Props) {
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>
-                    Create a new{" "}
+                    Crie uma nova transação de{""}
                     <span
                         className={cn(
                             "m-1",
                             type === "income" ? "text-emerald-500" : "text-red-500"
                         )}
                     >
-                        {type}
+                        {type === "income" ? 'renda' : 'despesa'}
                     </span>
-                    transaction
                 </DialogTitle>
             </DialogHeader>
             <Form {...form}>
@@ -107,12 +106,12 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                         name="description"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Description</FormLabel>
+                                <FormLabel>Descrição da transação</FormLabel>
                                 <FormControl>
                                     <Input defaultValue={""} {...field} />
                                 </FormControl>
                                 <FormDescription>
-                                    Transaction description (optional)
+                                    Descrição da transação
                                 </FormDescription>
                             </FormItem>
                         )}
@@ -122,12 +121,12 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                         name="amount"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Amount</FormLabel>
+                                <FormLabel>Valor</FormLabel>
                                 <FormControl>
                                     <Input defaultValue={0} type="number" {...field} />
                                 </FormControl>
                                 <FormDescription>
-                                    Transaction amount (required)
+                                    Valor da transação<span className="text-red-500">*</span>
                                 </FormDescription>
                             </FormItem>
                         )}
@@ -139,7 +138,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                             name="category"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col">
-                                    <FormLabel>Category</FormLabel>
+                                    <FormLabel>Categoria</FormLabel>
                                     <FormControl>
                                         <CategoryPicker
                                             type={type}
@@ -147,7 +146,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                                         />
                                     </FormControl>
                                     <FormDescription>
-                                        Select a category for this transaction
+                                        Selecione a categoria da transação<span className="text-red-500">*</span>
                                     </FormDescription>
                                 </FormItem>
                             )}
@@ -158,7 +157,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                             name="date"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col">
-                                    <FormLabel>Transaction date</FormLabel>
+                                    <FormLabel>Data</FormLabel>
                                     <Popover>
                                         <PopoverTrigger asChild>
                                             <FormControl>
@@ -190,7 +189,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                                             />
                                         </PopoverContent>
                                     </Popover>
-                                    <FormDescription>Select a date for this</FormDescription>
+                                    <FormDescription>Selecione a data da transação<hr/><span className="text-[9px] font-bold">(como padrão selecionada a data atual)</span></FormDescription>
                                     <FormMessage />
                                 </FormItem>
                             )}
@@ -209,11 +208,11 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                             form.reset();
                         }}
                     >
-                        Cancel
+                        Cancelar
                     </Button>
                 </DialogClose>
                 <Button onClick={form.handleSubmit(onSubmit)} disabled={isPending}>
-                    {!isPending && "Create"}
+                    {!isPending && "Criar"}
                     {isPending && <Loader2 className="animate-spin" />}
                 </Button>
             </DialogFooter>
