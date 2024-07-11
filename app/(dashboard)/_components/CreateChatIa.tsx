@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 import CategoryPicker from "./CategoryPicker";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import { CalendarIcon, Loader2 } from "lucide-react";
+import { CalendarIcon, Loader2, PencilRuler } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -27,7 +27,7 @@ import { CreateTransaction } from "../_actions/transactions";
 import { toast } from "sonner";
 import { DateToUTCDate } from "@/lib/helpers";
 
-function CreateTransactionDialog({ trigger, type }: Props) {
+function CreateChatIa({ trigger, type }: Props) {
     const form = useForm<CreateTransactionSchemaType>({
         resolver: zodResolver(CreateTransactionSchema),
         defaultValues: {
@@ -71,7 +71,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
 
     const onSubmit = useCallback(
         (values: CreateTransactionSchemaType) => {
-            toast.loading("Criando transação...", { id: "create-transaction" });
+            toast.loading("Criando transição...", { id: "create-transaction" });
 
             mutate({
                 ...values,
@@ -86,7 +86,10 @@ function CreateTransactionDialog({ trigger, type }: Props) {
             {trigger}
         </DialogTrigger>
         <DialogContent>
-            <DialogHeader>
+            <div className="flex justify-center items-center gap-2">
+                <span>Em criação</span><PencilRuler size={16} strokeWidth={2} />
+            </div>
+            {/* <DialogHeader>
                 <DialogTitle>
                     Crie uma nova transação de{""}
                     <span
@@ -215,9 +218,9 @@ function CreateTransactionDialog({ trigger, type }: Props) {
                     {!isPending && "Criar"}
                     {isPending && <Loader2 className="animate-spin" />}
                 </Button>
-            </DialogFooter>
+            </DialogFooter> */}
         </DialogContent>
     </Dialog>
 }
 
-export default CreateTransactionDialog
+export default CreateChatIa
