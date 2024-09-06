@@ -21,9 +21,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html 
         lang="pt-BR" 
-        className="dark" 
+        className="light" 
         style={{
-          colorScheme: "dark",
+          colorScheme: "light",
         }}
       >
         <body className={rubik.className}>

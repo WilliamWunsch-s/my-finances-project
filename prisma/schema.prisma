@@ -61,3 +61,33 @@ model YearHistory {
 
   @@id([month, year, userId])
 }
+
+model Chat {
+  id        String   @id @default(uuid())
+  userId    String
+  createdAt DateTime @default(now())
+  messages  Message[]
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  chatId    String
+  role      String
+  content   String
+  createdAt DateTime @default(now())
+  Chat      Chat     @relation(fields: [chatId], references: [id])
+}
+
+
+model Kanban {
+  id        String   @id @default(uuid())
+  date      DateTime @unique
+  tasks     Task[]
+}
+
+model Task {
+  id        String   @id @default(uuid())
+  text      String
+  kanbanId  String
+  kanban    Kanban   @relation(fields: [kanbanId], references: [id])
+}

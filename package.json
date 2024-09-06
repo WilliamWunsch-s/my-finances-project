@@ -44,12 +44,14 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tanstack/react-query": "^5.29.2",
     "@tanstack/react-table": "^8.16.0",
+    "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.0.2",
     "export-to-csv": "^1.2.4",
+    "groq-sdk": "^0.5.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.371.0",
     "next": "14.2.2",
@@ -65,6 +67,8 @@
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.0",
+    "yahoo-finance": "^0.3.8",
+    "yahoo-finance2": "^2.11.3",
     "zod": "^3.22.5"
   },
   "devDependencies": {

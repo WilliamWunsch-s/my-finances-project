@@ -7,7 +7,7 @@ import CreateTransactionDialog from "./_components/CreateTransactionDialog";
 import Overview from "./_components/Overview";
 import History from "./_components/History";
 import { Sparkles } from "lucide-react";
-import CreateChatIa from "./_components/CreateChatIa";
+import Link from "next/link";
 
 async function page() {
 
@@ -34,11 +34,12 @@ async function page() {
                     <p className="text-3xl font-bold">Olá, {user.firstName}! 👋</p>
 
                     <div className="flex items-center gap-3">
-                        <CreateChatIa trigger={<Button variant={"outline"} className="gap-1 border-gray-400 bg-gray-900 text-gray-400 hover:bg-gray-700 hover:text-gray-400">
-                            <Sparkles size={16} strokeWidth={1} />
-                            IA
-                        </Button>} type="income" />
-
+                        <Link href="/chatIa">
+                            <Button variant={"outline"} className="gap-1 border-gray-400 bg-gray-900 text-gray-400 hover:bg-gray-700 hover:text-gray-400">
+                                <Sparkles size={16} strokeWidth={1} />
+                                IA
+                            </Button>
+                        </Link>
                         <CreateTransactionDialog trigger={<Button variant={"outline"} className="border-emerald-500 bg-emerald-950 text-white hover:bg-emerald-700 hover:text-white">
                             Nova renda 🤑
                         </Button>} type="income" />
@@ -48,6 +49,7 @@ async function page() {
                     </div>
                 </div>
             </div>
+
 
             <Overview userSettings={userSettings} />
             <History userSettings={userSettings} />

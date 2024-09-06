@@ -23,7 +23,8 @@ const items = [
     { label: "Dashboard", link: "/" },
     { label: "Transações", link: "/transactions" },
     { label: "Gerenciar", link: "/manage" },
-  ]
+    { label: "Organizar", link: "/organize" },
+]
 
 function MobileNavbar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -53,6 +54,7 @@ function MobileNavbar() {
                 <div className="flex h-[80px] min-h-[60px] items-center gap-x-4">
                 </div>
                 <div className="flex items-center gap-2">
+                    
                     <ThemeSwitcherBtn />
                     <UserButton afterSignOutUrl="/sign-in" />
                 </div>
