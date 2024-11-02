@@ -36,36 +36,36 @@ model Transaction {
   description  String
   date         DateTime
   userId       String
-  type         String @default("income")
+  type         String   @default("income")
   category     String
   categoryIcon String
 }
 
 model MonthHistory {
-  userId String
-  day Int
-  month Int
-  year Int
-  income Float
+  userId  String
+  day     Int
+  month   Int
+  year    Int
+  income  Float
   expense Float
 
   @@id([day, month, year, userId])
 }
 
 model YearHistory {
-  userId String
-  month Int
-  year Int
-  income Float
+  userId  String
+  month   Int
+  year    Int
+  income  Float
   expense Float
 
   @@id([month, year, userId])
 }
 
 model Chat {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   userId    String
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
   messages  Message[]
 }
 
@@ -78,16 +78,17 @@ model Message {
   Chat      Chat     @relation(fields: [chatId], references: [id])
 }
 
-
 model Kanban {
-  id        String   @id @default(uuid())
-  date      DateTime @unique
-  tasks     Task[]
+  id    String   @id @default(uuid())
+  date  DateTime @unique
+  tasks Task[]
 }
 
 model Task {
-  id        String   @id @default(uuid())
-  text      String
-  kanbanId  String
-  kanban    Kanban   @relation(fields: [kanbanId], references: [id])
+  id          String   @id @default(uuid())
+  text        String
+  description String
+  createAt    DateTime @default(now())
+  kanbanId    String
+  kanban      Kanban   @relation(fields: [kanbanId], references: [id])
 }

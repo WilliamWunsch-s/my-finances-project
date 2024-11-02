@@ -86,7 +86,7 @@ function CreateTransactionDialog({ trigger, type }: Props) {
         <DialogTrigger asChild>
             {trigger}
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="max-w-[32rem]">
             <DialogHeader>
                 <DialogTitle>
                     Crie uma nova transação de{""}

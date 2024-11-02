@@ -2,7 +2,7 @@
 
 import TransactionTable from "@/app/(dashboard)/transactions/_components/TransactionTable";
 import { DateRangePicker } from "@/components/ui/date-range-picker";
-import { MAX_DATE_RANGE_DAYS } from "@/lib/constants";
+import { MAX_DATE_RANGE_DAYS, STANDARD_TO } from "@/lib/constants";
 import { differenceInDays, startOfMonth } from "date-fns";
 import React, { useState } from "react";
 import { toast } from "sonner";
@@ -10,7 +10,7 @@ import { toast } from "sonner";
 function TransactionsPage() {
   const [dateRange, setDateRange] = useState<{ from: Date; to: Date }>({
     from: startOfMonth(new Date()),
-    to: new Date(),
+    to: new Date(STANDARD_TO),
   });
   return (
     <>

@@ -1,7 +1,7 @@
 "use client"
 
 import { DateRangePicker } from '@/components/ui/date-range-picker';
-import { MAX_DATE_RANGE_DAYS } from '@/lib/constants';
+import { MAX_DATE_RANGE_DAYS, STANDARD_TO } from '@/lib/constants';
 import { UserSettings } from '@prisma/client'
 import { differenceInDays, startOfMonth } from 'date-fns';
 import React, { useState } from 'react'
@@ -10,10 +10,9 @@ import StatsCards from './StatsCards';
 import CategoriesStats from './CategoriesStats';
 
 function Overview({ userSettings }: { userSettings: UserSettings }) {
-
     const [dateRange, setDateRange] = useState<{ from: Date; to: Date }>({
         from: startOfMonth(new Date()),
-        to: new Date(),
+        to: new Date(STANDARD_TO),
     })
     return <>
         <div className='container flex flex-wrap items-end justify-between gap-2 py-6'>
@@ -31,6 +30,7 @@ function Overview({ userSettings }: { userSettings: UserSettings }) {
                             toast.error(`O intervalo máximo permitido é ${MAX_DATE_RANGE_DAYS} dias!`)
                             return                      
                         }
+                        setDateRange({ from, to })
                     }}
                 />
             </div>

@@ -9,6 +9,8 @@
 # testing
 /coverage
 
+# migrations database(sqlite)
+/prisma
 # next.js
 /.next/
 /out/
