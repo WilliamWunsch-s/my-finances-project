@@ -5,6 +5,7 @@ import { z } from "zod";
 const taskSchema = z.object({
   text: z.string(),
   kanbanId: z.string(),
+  description: z.string()
 });
 
 export async function POST(request: Request) {
@@ -15,13 +16,14 @@ export async function POST(request: Request) {
     return new NextResponse(JSON.stringify(result.error), { status: 400 });
   }
 
-  const { text, kanbanId } = result.data;
+  const { text, kanbanId, description } = result.data;
 
   try {
     const task = await prisma.task.create({
       data: {
         text,
         kanbanId,
+        description
       },
     });
     return new NextResponse(JSON.stringify(task), { status: 200 });

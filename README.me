@@ -46,18 +46,19 @@ Para rodar o projeto, você precisará ter instaladas as seguintes ferramentas:
     Exemplo de .env.local:
         NEXT_PUBLIC_CLERK_FRONTEND_API=<sua_clerk_frontend_api_key>
         CLERK_API_KEY=<sua_clerk_api_key>
+Documentação do clerk para mais informações: https://clerk.com/docs/quickstarts/nextjs
 
 ## Estrutura
 
 app/: Contém as principais funcionalidades da aplicação, como autenticação com Clerk, dashboard com páginas para chat, transações, organização e gerenciamento financeiro.
 
-auth/: Autenticação padrão do Clerk.
-
-dashboard/: Contém páginas de gerenciamento, como chatIA, transaction, organize e manage.
-
-wizard/: Primeira configuração da conta.
-
-api/: Rotas da API.
+   auth/: Autenticação padrão do Clerk.
+   
+   dashboard/: Contém páginas de gerenciamento, como chatIA, transaction, organize e manage.
+   
+   wizard/: Primeira configuração da conta.
+   
+   api/: Rotas da API.
 
 components/: Componentes globais reutilizáveis em todo o projeto.
 
@@ -70,3 +71,5 @@ prisma/: Contém o schema.prisma e as migrações do banco de dados.
 public/: Arquivos estáticos do projeto.
 
 schema/: Validações de esquema com Zod.
+
+Video curto para mostrar funcionalidades (organizar e a ia estão em ajustes atualmente): https://youtu.be/IuALL7Pug3M

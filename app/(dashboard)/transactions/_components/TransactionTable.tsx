@@ -56,7 +56,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
   {
     accessorKey: "category",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Category" />
+      <DataTableColumnHeader column={column} title="Categoria" />
     ),
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
@@ -71,7 +71,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
   {
     accessorKey: "description",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Description" />
+      <DataTableColumnHeader column={column} title="Descrição" />
     ),
     cell: ({ row }) => (
       <div className="capitalize">{row.original.description}</div>
@@ -94,7 +94,7 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
   {
     accessorKey: "type",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Type" />
+      <DataTableColumnHeader column={column} title="Tipo" />
     ),
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
@@ -108,14 +108,14 @@ const columns: ColumnDef<TransactionHistoryRow>[] = [
           row.original.type === "expense" && "bg-red-400/10 text-red-500"
         )}
       >
-        {row.original.type}
+        {row.original.type === "expense" ? "Despesa" : "Renda"}
       </div>
     ),
   },
   {
     accessorKey: "amount",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Amount" />
+      <DataTableColumnHeader column={column} title="Valor" />
     ),
     cell: ({ row }) => (
       <p className="text-md rounded-lg bg-gray-400/5 p-2 text-center font-medium">

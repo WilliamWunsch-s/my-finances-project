@@ -39,7 +39,7 @@ function History({ userSettings }: { userSettings: UserSettings }) {
         `/api/history-data?timeframe=${timeframe}&year=${period.year}&month=${period.month}`
       ).then((res) => res.json()),
   });
-
+  console.log(historyDataQuery)
   const dataAvailable =
     historyDataQuery.data && historyDataQuery.data.length > 0;
 
