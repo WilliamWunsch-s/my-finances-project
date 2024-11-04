@@ -96,7 +96,7 @@ function OrganizePage() {
         });
       }
       if (kanban && kanban.id) {
-        await axios.post('/api/kanban/task', { description: task.description ,text: task.text, kanbanId: kanban.id });
+        await axios.post('/api/kanban/task', { description: task.description, text: task.text, kanbanId: kanban.id });
         setKanbans(prev =>
           prev.map(k => k.id === kanban!.id ? { ...k, tasks: [...k.tasks, task] } : k)
         );
@@ -166,32 +166,34 @@ function OrganizePage() {
             trigger={
               <div
                 className={`p-1 h-32 flex gap-2 bg-card text-muted-foreground border-[0.05rem] ${!isSameMonth(day, monthStart)
-                  ? "text-muted"
+                  ? "text-primary bg-card dark:bg-muted"
                   : isToday(day)
-                    ? "bg-transparent"
-                    : ""
+                    ? "bg-muted-foreground dark:bg-primary-foreground"
+                    : "bg-muted dark:bg-card"
                   }`}
               >
-                {isSameMonth(day, monthStart) ? (
-                  <div className={`flex items-center justify-center w-8 h-8 rounded-full ${!isSameMonth(day, monthStart)
-                    ? "text-muted"
-                    : isToday(day)
-                      ? "text-current bg-card"
-                      : ""
-                    }`}>
-                    {formattedDate}
-                  </div>
+                <div>
+                  {isSameMonth(day, monthStart) ? (
+                    <div className={`flex text-xs items-center justify-center w-6 h-6 rounded-full ${!isSameMonth(day, monthStart)
+                      ? "text-muted"
+                      : isToday(day)
+                        ? "text-current bg-card"
+                        : ""
+                      }`}>
+                      {formattedDate}
+                    </div>
 
-                ) : (
+                  ) : (
 
-                  <div className="text-centeritems-center justify-center w-8 h-8 rounded-full">{formattedDate}</div>
+                    <div className="flex text-xs items-center justify-center w-8 h-8 rounded-full">{formattedDate}</div>
 
-                )}
+                  )}
+                </div>
                 <ScrollArea className="w-full">
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-2">
                       {kanban && kanban.tasks && kanban.tasks.slice(0, 3).map(task => (
-                        <div key={task.id} className="text-sm bg-muted-foreground text-muted pl-1 rounded">
+                        <div key={task.id} className="text-sm bg-sky-700/80 text-white pl-1 rounded">
                           {task.text}
                         </div>
                       ))}
@@ -201,7 +203,7 @@ function OrganizePage() {
                         <>
                           {isSameDay(new Date(correctDate(history.date)), day) && (
                             <div className={cn(
-                              "w-full rounded pl-1 text-muted text-sm",
+                              "w-full rounded pl-1 text-white text-sm",
                               history.type === "income" ? "bg-emerald-500" : "bg-red-500"
                             )}>
                               {history.description}
