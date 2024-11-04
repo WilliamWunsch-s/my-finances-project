@@ -23,7 +23,7 @@ const items = [
     { label: "Dashboard", link: "/" },
     { label: "Transações", link: "/transactions" },
     { label: "Gerenciar", link: "/manage" },
-    { label: "Organizar", link: "/organize" },
+    { label: "Organizar", link: "/organize" }
 ]
 
 function MobileNavbar() {

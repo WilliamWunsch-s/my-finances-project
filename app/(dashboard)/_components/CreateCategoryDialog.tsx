@@ -114,7 +114,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-[28rem]">
         <DialogHeader>
           <DialogTitle>
             Crie uma nova categoria de
