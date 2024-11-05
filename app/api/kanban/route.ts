@@ -48,23 +48,3 @@ export async function GET(request: Request) {
 
   return new NextResponse(JSON.stringify(kanbans), { status: 200 });
 }
-
-export async function POST_TASK(request: Request) {
-  const body = await request.json();
-  const result = taskSchema.safeParse(body);
-
-  if (!result.success) {
-    return new NextResponse(JSON.stringify(result.error), { status: 400 });
-  }
-
-  const { text, kanbanId } = result.data;
-
-  const task = await prisma.task.create({
-    data: {
-      text,
-      kanbanId,
-    },
-  });
-
-  return new NextResponse(JSON.stringify(task), { status: 200 });
-}
